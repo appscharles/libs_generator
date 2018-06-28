@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'maven-publish'
+    id 'com.jfrog.bintray' version '1.8.3'
 }
 
 group 'com.appscharles.libs'
@@ -7,19 +9,12 @@ version '1.0.0.0-dev3'
 
 sourceCompatibility = 1.8
 
+apply from: 'gradle/BintrayPublisher.gradle'
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
-task archiveJar(type:Jar, dependsOn: ['clean','assemble', 'build'], group: 'build') {
-    outputs.upToDateWhen { false }
-    assemble.shouldRunAfter clean
-    build.shouldRunAfter assemble
-    jar.shouldRunAfter build
-    destinationDir = file('E:/archives/releases')
-    with jar
 }
