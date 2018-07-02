@@ -33,15 +33,15 @@ public class TreeFilesGenerator implements IGenerator {
     /**
      * Instantiates a new Tree files generator.
      *
-     * @param rootPath      the root path
-     * @param numberDirs    the number dirs
-     * @param numberFiles   the number files
-     * @param maxDepthDirs  the max depth dirs
-     * @param maxDepthFiles the max depth files
+     * @param rootPath        the root path
+     * @param numberEmptyDirs the number empty dirs
+     * @param numberFiles     the number files
+     * @param maxDepthDirs    the max depth dirs
+     * @param maxDepthFiles   the max depth files
      */
-    public TreeFilesGenerator(String rootPath, Integer numberDirs, Integer numberFiles, Integer maxDepthDirs, Integer maxDepthFiles){
+    public TreeFilesGenerator(String rootPath, Integer numberEmptyDirs, Integer numberFiles, Integer maxDepthDirs, Integer maxDepthFiles){
         this.rootPath = rootPath;
-        this.dirGenerator = new DirGenerator(this.rootPath, numberDirs, maxDepthDirs);
+        this.dirGenerator = new DirGenerator(this.rootPath, numberEmptyDirs, maxDepthDirs);
         this.fileGenerator = new FileGenerator(this.rootPath, numberFiles, maxDepthFiles);
     }
 
